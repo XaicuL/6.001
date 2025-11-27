@@ -72,6 +72,8 @@ print("Number of months: " + str(months))
 # This code is intentionally written with noise added to obscure the logic.
 # The underlying algorithm is identical to the original clean solution.
 # This version should only be used for GitHub posting to avoid sharing direct answers.
+# This is a noise-modified version for my public GitHub.
+# The original clean solution is stored privately and not shared.
 # ---------------------------------------------------------------------------
 
 
