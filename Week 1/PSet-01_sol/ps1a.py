@@ -76,4 +76,3 @@ print("Number of months: " + str(months))
 
 
 
-
