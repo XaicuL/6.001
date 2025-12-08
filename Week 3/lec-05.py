@@ -105,64 +105,122 @@
 # # # ## EXAMPLE: various list operations
 # # # ## put print(L) at different locations to see how it gets mutated
 # # # #########################
-L1 = [2, 1, 3]
-L2 = [4, 5, 6]
-L3 = L1 + L2
-L1.extend([0, 6])
+from traceback import print_tb
 
-L = [2, 1, 3, 6, 3, 7, 0]
-L.remove(2)
-L.remove(3)
-del (L[1])
-print(L.pop())
+# L1 = [2, 1, 3]
+# L2 = [4, 5, 6]
+# L3 = L1 + L2
+# L4 = (L1 + L2) * 2
+# L5 = L3 * 2
+# print(L5)
 
+
+# print(L4) #[2, 1, 3//L1 4, 5, 6//L2 2, 1, 3//L1 4, 5, 6//L2]
+# print(L2)
+# print(L3)
+
+# L1.extend([0, 6])
+# # print(L1)
+#
+# L = [2, 1, 3, 6, 3, 7, 0]
+# L.remove(2)
+# L.remove(3)
+# current L = [1,6,3,7,0]
+# # print(L)
+#
+# del (L[1]) #index position 1 = 1
+#
+# print(L) #[1, 3, 7, 0] del 6
+# x = L.pop()  <-- .pop은 '삭제(del)' 기능과 '값 반환(return)' 기능을 동시에 수행한다.
+
+# L100 = [0, 1, 2] 일 때:
+
+# 1. 인덱스 지정 X: L100.pop()
+#    = 마지막 요소(2)를 삭제(del)하고, 그 값 2를 반환(out 2)한다.
+#    L100은 [0, 1]이 됨.
+#    (메모: pop()의 기본 동작은 Stack의 'Pop'처럼 맨 끝을 건드린다.)
+
+# 2. 인덱스 지정 O: L100.pop(0)
+#    = 인덱스 0의 요소(0)를 삭제(del)하고, 그 값 0을 반환(out 0)한다.
+#    L100은 [1, 2]가 됨.
+#
 s = "I<3 cs"
-print(list(s))
-print(s.split('<'))
-L = ['a', 'b', 'c']
-print(''.join(L))
-print('_'.join(L))
+# print(list(s))
 
-L = [9, 6, 0, 3]
-print(sorted(L))
-L.sort()
-L.reverse()
+# l = "Luciano"
+# print(list(l)) #['L', 'u', 'c', 'i', 'a', 'n', 'o']
+
+# print(s.split('<')) #['I', '3 cs']
+
+# L = ['a', 'b', 'c']
+# print(''.join(L)) #abc
+# print('_'.join(L)) #a_b_c
+
+# L = [9, 6, 0, 3]
+# #print(sorted(L)) #[0, 3, 6, 9] 오름차순 정리
+# x = reversed(L)
+# y = list(x)
+#
+# print(y)
+
+# L.sort()
+
+# ##########
+# L = [9, 6, 0, 3]
+#
+# # 1. reversed(L) 호출
+# x = reversed(L)
+# # -> x는 'list_reverseiterator' 객체(이터레이터)가 됨.
+# #    아직 리스트의 모든 요소를 역순으로 만든 것은 아님.
+#
+# # 2. list(x) 호출
+# y = list(x)
+# # -> 이터레이터 x가 가진 모든 요소를 순회하면서 새 리스트 y를 만듦.
+# #    이 시점에서 [3, 0, 6, 9]가 y에 저장됨.
+#
+# # 3. print(y) 출력
+# print(y)
+# # -> [3, 0, 6, 9] 출력!
+
 # # #
 # # # #########################
 # # # ## EXAMPLE: aliasing
 # # # #########################
-# # # a = 1
-# # # b = a
-# # # print(a)
-# # # print(b)
-# # #
-# # # warm = ['red', 'yellow', 'orange']
-# # # hot = warm
-# # # hot.append('pink')
-# # # print(hot)
-# # # print(warm)
+# a = 1
+# b = a
+# print(a)
+# print(b)
+#
+# # mutable , (list O/tuple X)
+#
+# warm = ['red', 'yellow', 'orange']
+# hot = warm
+# hot.append('pink')
+# print(hot)
+# print(warm)
+
 # # #
 # # # #########################
 # # # ## EXAMPLE: cloning
 # # # #########################
-# # # cool = ['blue', 'green', 'grey']
-# # # chill = cool[:]
-# # # chill.append('black')
-# # # print(chill)
-# # # print(cool)
-# # #
-# # # #########################
-# # # ## EXAMPLE: sorting with/without mutation
-# # # #########################
-# # # warm = ['red', 'yellow', 'orange']
-# # # sortedwarm = warm.sort()
-# # # print(warm)
-# # # print(sortedwarm)
-# # #
-# # # cool = ['grey', 'green', 'blue']
-# # # sortedcool = sorted(cool)
-# # # print(cool)
-# # # print(sortedcool)
+cool = ['blue', 'green', 'grey']
+chill = cool[:] #copy every element
+chill.append('black')
+print(chill) #['blue', 'green', 'grey', 'black']
+print(cool) #['blue', 'green', 'grey']
+
+#########################
+## EXAMPLE: sorting with/without mutation
+# #########################
+# warm = ['red', 'yellow', 'orange']
+# sortedwarm = warm.sort()
+# print(warm)
+# print(sortedwarm)
+#
+# cool = ['grey', 'green', 'blue']
+# sortedcool = sorted(cool)
+# print(cool)
+# print(sortedcool)
 # # #
 # # # #########################
 # # # ## EXAMPLE: lists of lists of lists...
