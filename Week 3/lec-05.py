@@ -203,106 +203,110 @@ s = "I<3 cs"
 # # # #########################
 # # # ## EXAMPLE: cloning
 # # # #########################
-cool = ['blue', 'green', 'grey']
-chill = cool[:] #copy every element
-chill.append('black')
-print(chill) #['blue', 'green', 'grey', 'black']
-print(cool) #['blue', 'green', 'grey']
+# cool = ['blue', 'green', 'grey']
+# chill = cool[:] #copy every element
+# chill.append('black')
+# print(chill) #['blue', 'green', 'grey', 'black']
+# print(cool) #['blue', 'green', 'grey']
 
 #########################
 ## EXAMPLE: sorting with/without mutation
 # #########################
 # warm = ['red', 'yellow', 'orange']
 # sortedwarm = warm.sort()
-# print(warm)
-# print(sortedwarm)
-#
+# print(warm) #['orange', 'red', 'yellow']
+# print(sortedwarm) #None
+
 # cool = ['grey', 'green', 'blue']
 # sortedcool = sorted(cool)
-# print(cool)
-# print(sortedcool)
-# # #
-# # # #########################
-# # # ## EXAMPLE: lists of lists of lists...
-# # # #########################
-# # # warm = ['yellow', 'orange']
-# # # hot = ['red']
-# # # brightcolors = [warm]
-# # # brightcolors.append(hot)
-# # # print(brightcolors)
-# # # hot.append('pink')
-# # # print(hot)
-# # # print(brightcolors)
+# sortedhot = cool.sort()
+# print(cool) #['blue', 'green', 'grey']
+# print(sortedhot) #None
+# print(sortedcool) #['blue', 'green', 'grey']
+# #
+# # #########################
+# # ## EXAMPLE: lists of lists of lists...
+# # #########################
+# warm = ['yellow', 'orange']
+# hot = ['red']
+#
+# brightcolors = [warm]
+# brightcolors.append(hot)
+# print(brightcolors,'#1')
+#
+# hot.append('pink')
+# print(hot)
+# print(brightcolors,'#2, plus pink')
 # # #
 # # #
 # # # ###############################
 # # # ## EXAMPLE: mutating a list while iterating over it
 # # # ###############################
-# # # def remove_dups(L1, L2):
-# # #     for e in L1:
-# # #         if e in L2:
-# # #             L1.remove(e)
-# # #
-# # #
-# # # def remove_dups_new(L1, L2):
-# # #     L1_copy = L1[:]
-# # #     for e in L1_copy:
-# # #         if e in L2:
-# # #             L1.remove(e)
-# # #
-# # #
-# # # L1 = [1, 2, 3, 4]
-# # # L2 = [1, 2, 5, 6]
-# # # remove_dups(L1, L2)
-# # # print(L1, L2)
-# # #
-# # # L1 = [1, 2, 3, 4]
-# # # L2 = [1, 2, 5, 6]
-# # # remove_dups_new(L1, L2)
-# # # print(L1, L2)
-# # #
+# def remove_dups(L1, L2):
+#     for e in L1:
+#         if e in L2:
+#             L1.remove(e)
+
+
+# def remove_dups_new(L1, L2):
+#     L1_copy = L1[:] #L1_copy is all elements of L1
+#     for e in L1_copy:
+#         if e in L2:
+#             L1.remove(e)
+#
+#
+# L1 = [1, 2, 3, 4]
+# L2 = [1, 2, 5, 6]
+# # remove_dups(L1, L2)
+# print(L1, L2) #[2, 3, 4] [1, 2, 5, 6] // [2,3,4] : L1 , [1,2,5,6] : L2
+#
+# L1 = [1, 2, 3, 4]
+# L2 = [1, 2, 5, 6]
+# remove_dups_new(L1, L2)
+# print(L1, L2)
+
 # # # ###############################
 # # # ## EXERCISE: Test yourself by predicting what the output is and
 # # # ##           what gets mutated then check with the Python Tutor
 # # # ###############################
-# # # cool = ['blue', 'green']
-# # # warm = ['red', 'yellow', 'orange']
-# # # print(cool)
-# # # print(warm)
-# # #
-# # # colors1 = [cool]
-# # # print(colors1)
-# # # colors1.append(warm)
-# # # print('colors1 = ', colors1)
-# # #
-# # # colors2 = [['blue', 'green'],
-# # #            ['red', 'yellow', 'orange']]
-# # # print('colors2 =', colors2)
-# # #
-# # # warm.remove('red')
-# # # print('colors1 = ', colors1)
-# # # print('colors2 =', colors2)
-# # #
-# # # for e in colors1:
-# # #     print('e =', e)
-# # #
-# # # for e in colors1:
-# # #     if type(e) == list:
-# # #         for e1 in e:
-# # #             print(e1)
-# # #     else:
-# # #         print(e)
-# # #
-# # # flat = cool + warm
-# # # print('flat =', flat)
-# # #
-# # # print(flat.sort())
-# # # print('flat =', flat)
-# # #
-# # # new_flat = sorted(flat, reverse=True)
-# # # print('flat =', flat)
-# # # print('new_flat =', new_flat)
-# # #
-# # # cool[1] = 'black'
-# # # print(cool)
-# # # print(colors1)
+cool = ['blue', 'green']
+warm = ['red', 'yellow', 'orange']
+print(cool)
+print(warm)
+
+colors1 = [cool]
+print(colors1)
+colors1.append(warm)
+print('colors1 = ', colors1)
+
+colors2 = [['blue', 'green'],
+           ['red', 'yellow', 'orange']]
+print('colors2 =', colors2)
+
+warm.remove('red')
+print('colors1 = ', colors1)
+print('colors2 =', colors2)
+
+for e in colors1:
+    print('e =', e)
+
+for e in colors1:
+    if type(e) == list:
+        for e1 in e:
+            print(e1)
+    else:
+        print(e)
+
+flat = cool + warm
+print('flat =', flat)
+
+print(flat.sort())
+print('flat =', flat)
+
+new_flat = sorted(flat, reverse=True)
+print('flat =', flat)
+print('new_flat =', new_flat)
+
+cool[1] = 'black'
+print(cool)
+print(colors1)
