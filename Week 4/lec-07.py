@@ -114,53 +114,60 @@
 # # ######################################
 # # # EXAMPLE: Exceptions and input
 # # ######################################
-# # # a = int(input("Tell me one number: "))
-# # # b = int(input("Tell me another number: "))
-# # # print("a/b = ", a/b)
-# # # print("a+b = ", a+b)
-# #
-# # try:
-# #     a = int(input("Tell me one number: "))
-# #     b = int(input("Tell me another number: "))
-# #     print("a/b = ", a / b)
-# # except:
-# #     print("Bug in user input.")
-# #
-# # try:
-# #     a = int(input("Tell me one number: "))
-# #     b = int(input("Tell me another number: "))
-# #     print("a/b = ", a / b)
-# #     print("a+b = ", a + b)
-# # except ValueError:
-# #     print("Could not convert to a number.")
-# # except ZeroDivisionError:
-# #     print("Can't divide by zero")
-# # except:
-# #     print("Something went very wrong.")
+
+#Without exception handling
+
+# a = int(input("Tell me one number: "))
+# b = int(input("Tell me another number: "))
+# print("a/b = ", a/b, 'Wt')
+# print("a+b = ", a+b, 'Wt')
+
+# First version with a single exception
+#
+# try:
+#     a = int(input("Tell me one number: "))
+#     b = int(input("Tell me another number: "))
+#     print("a/b = ", a / b, 'Ft & try')
+# except:
+#     print("Bug in user input." , 'Ft & except')
+
+# Second version with multiple exceptions
+#
+# try:
+#     a = int(input("Tell me one number: "))
+#     b = int(input("Tell me another number: "))
+#     print("a/b = ", a / b, 'Sd& try1')
+#     print("a+b = ", a + b , 'Sd& try2')
+# except ValueError:
+#     print("Could not convert to a number." , 'Sd& except1')
+# except ZeroDivisionError:
+#     print("Can't divide by zero" , 'Sd& except2')
+# except:
+#     print("Something went very wrong." , 'Sd& except3')
 # #
 # #
 # # ######################################
 # # # EXAMPLE: Raising your own exceptions
 # # ######################################
-# # def get_ratios(L1, L2):
-# #     """ Assumes: L1 and L2 are lists of equal length of numbers
-# #         Returns: a list containing L1[i]/L2[i] """
-# #     ratios = []
-# #     for index in range(len(L1)):
-# #         try:
-# #             ratios.append(L1[index] / L2[index])
-# #         except ZeroDivisionError:
-# #             ratios.append(float('nan'))  # nan = Not a Number
-# #         except:
-# #             raise ValueError('get_ratios called with bad arg')
-# #         else:
-# #             print("success")
-# #         finally:
-# #             print("executed no matter what!")
-# #     return ratios
-# #
-# #
-# # print(get_ratios([1, 4], [2, 4]))
+# def get_ratios(L1, L2):
+#     """ Assumes: L1 and L2 are lists of equal length of numbers
+#         Returns: a list containing L1[i]/L2[i] """
+#     ratios = []
+#     for index in range(len(L1)):
+#         try:
+#             ratios.append(L1[index] / L2[index])
+#         except ZeroDivisionError:
+#             ratios.append(float('nan'))  # nan = Not a Number
+#         except:
+#             raise ValueError('get_ratios called with bad arg')
+#         else:
+#             print("success")
+#         finally:
+#             print("executed no matter what!")
+#     return ratios
+#
+#
+# print(get_ratios([1, 4], [2, 4]))
 # #
 # #
 # # #######################################
