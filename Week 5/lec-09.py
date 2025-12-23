@@ -23,36 +23,36 @@ class Animal(object):
 
     def __str__(self):
         return "animal:" + str(self.name) + ":" + str(self.age)
-
-
-print("\n---- animal tests ----")
-a = Animal(4) #a is instance of Animal class
-print(a) #animal:None:4
-print(a.get_age())  # 4 , cuz a = Animal(4) = Animal age is 4 cuz age is parameter of Animal class
-a.set_name("fluffy")  #1st plus binding 2nd fluffy set on newname(parameter)
-print(a) #animal:fluffy:4
-a.set_name()  #~define newname => None
-print(a) #animal::4
+#
+#
+# print("\n---- animal tests ----")
+# a = Animal(4) #a is instance of Animal class
+# print(a) #animal:None:4
+# print(a.get_age())  # 4 , cuz a = Animal(4) = Animal age is 4 cuz age is parameter of Animal class
+# a.set_name("fluffy")  #1st plus binding 2nd fluffy set on newname(parameter)
+# print(a) #animal:fluffy:4
+# a.set_name()  #~define newname => None
+# print(a) #animal::4
 
 
 # #################################
 # ## Inheritance example
 # #################################
-# class Cat(Animal):
-#     def speak(self):
-#         print("meow")
-#
-#     def __str__(self):
-#         return "cat:" + str(self.name) + ":" + str(self.age)
-#
+class Cat(Animal):
+    def speak(self):
+        print("meow")
+
+    def __str__(self):
+        return "cat:" + str(self.name) + ":" + str(self.age)
+
 #
 # print("\n---- cat tests ----")
-# c = Cat(5)
-# c.set_name("fluffy")
-# print(c)
-# c.speak()
-# print(c.get_age())
-#
+# c = Cat(5) #c is instance of Cat class
+# c.set_name("fluffy") #fluffy set on newname(parameter)
+# print(c) #cat:fluffy:5
+# c.speak() #function call : meow
+# print(c.get_age()) #meow
+
 #
 # # a.speak() # error because there is no speak method for Animal class
 #
@@ -60,40 +60,40 @@ print(a) #animal::4
 # #################################
 # ## Inheritance example
 # #################################
-# class Person(Animal):
-#     def __init__(self, name, age):
-#         Animal.__init__(self, age)
-#         self.set_name(name)
-#         self.friends = []
-#
-#     def get_friends(self):
-#         return self.friends
-#
-#     def speak(self):
-#         print("hello")
-#
-#     def add_friend(self, fname):
-#         if fname not in self.friends:
-#             self.friends.append(fname)
-#
-#     def age_diff(self, other):
-#         diff = self.age - other.age
-#         print(abs(diff), "year difference")
-#
-#     def __str__(self):
-#         return "person:" + str(self.name) + ":" + str(self.age)
-#
-#
+class Person(Animal):
+    def __init__(self, name, age): #parameter is name & age
+        Animal.__init__(self, age)
+        self.set_name(name)
+        self.friends = [] #set list
+
+    def get_friends(self):
+        return self.friends
+
+    def speak(self):
+        print("hello")
+
+    def add_friend(self, fname):
+        if fname not in self.friends:
+            self.friends.append(fname)
+
+    def age_diff(self, other):
+        diff = self.age - other.age #define variable
+        print(abs(diff), "year difference")
+
+    def __str__(self):
+        return "person:" + str(self.name) + ":" + str(self.age)
+
+
 # print("\n---- person tests ----")
-# p1 = Person("jack", 30)
-# p2 = Person("jill", 25)
-# print(p1.get_name())
-# print(p1.get_age())
-# print(p2.get_name())
-# print(p2.get_age())
-# print(p1)
-# p1.speak()
-# p1.age_diff(p2)
+# p1 = Person("jack", 30) #p1 is instance of Person class
+# p2 = Person("jill", 25) #p2 is instance of Person class
+# print(p1.get_name()) #jack
+# print(p1.get_age()) #30
+# print(p2.get_name()) #jill
+# print(p2.get_age()) #25
+# print(p1) #person:jack:30
+# p1.speak() #hello
+# p1.age_diff(p2) # 5 year difference
 #
 #
 # #################################
