@@ -41,7 +41,7 @@ Created on Sun Oct  9 11:27:54 2016
 
 #
 #
-# def isSubset(L1, L2):
+# def issubset(L1, L2):
 #     for e1 in L1:
 #         matched = False
 #         for e2 in L2:
@@ -53,17 +53,17 @@ Created on Sun Oct  9 11:27:54 2016
 #     return True
 #
 #
-# testSet = [1, 2, 3, 4, 5]
-# testSet1 = [1, 5, 3]
-# testSet2 = [1, 6]
+testSet = [1, 2, 3, 4, 5]
+testSet1 = [1, 5, 3]
+testSet2 = [1, 6]
 #
-# print(isSubset(testSet1, testSet2)) #False
-# print(isSubset(testSet, testSet1)) #False
-# print(isSubset(testSet, testSet2)) #False
-# print(isSubset(testSet1, testSet)) #True
-# print(isSubset(testSet1, testSet2)) #False
-# print(isSubset(testSet2,testSet1)) #False
-# print(isSubset(testSet2, testSet)) #False
+# print(issubset(testSet1, testSet2)) #False
+# print(issubset(testSet, testSet1)) #False
+# print(issubset(testSet, testSet2)) #False
+# print(issubset(testSet1, testSet)) #True
+# print(issubset(testSet1, testSet2)) #False
+# print(issubset(testSet2,testSet1)) #False
+# print(issubset(testSet2, testSet)) #False
 
 
 
@@ -80,3 +80,10 @@ def intersect(L1, L2):
             res.append(e)
     return res
 
+print(intersect(testSet1, testSet2)) #[1]
+print(intersect(testSet, testSet1)) #[1,3,5]
+print(intersect(testSet, testSet2)) #[1]
+print(intersect(testSet1, testSet)) #[1,5,3]
+print(intersect(testSet1, testSet2)) #[1]
+print(intersect(testSet2,testSet1)) #[1]
+print(intersect(testSet2, testSet)) #[1]
