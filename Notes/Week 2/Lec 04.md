@@ -42,7 +42,8 @@
 예1)
 ```
 >def f(x): # [1]  
->    """    Input: x (int or float)    Returns: x^2 + 1 (int or float)    """ # [2]    y = x**2 + 1 # [3]  
+>    """    Input: x (int or float)    Returns: x^2 + 1 (int or float)    """ # [2]    
+>    y = x**2 + 1 # [3]  
 >    return y # [4]  
   
 >print(f(2))
