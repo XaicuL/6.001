@@ -16,6 +16,18 @@
     
 - **다중 반환 (Multiple Returns)**: 함수에서 결과값(몫과 나머지 등)을 한꺼번에 묶어서 반환할 때 유용하다.
 
+예1)
+```
+>except TypeError as e:
+>       print(f"Error {e}")
+
+>print(tuple)
+
+Error 'tuple' object does not support item assignment
+(10, 20, 30)
+```
+
+
 ---
 
 ## **# 2. LISTS: 가변의 서열**
@@ -28,9 +40,38 @@
 
 ### **(2)리스트 조작 도구**
 
-- **추가**: `L.append(e)`는 요소 하나를 끝에 붙이고, `L.extend(list)`는 리스트 전체를 이어 붙인다. 둘 다 기존 리스트를 **변형(Mutate)**한다.
+- **추가**: `L.append(e)`는 요소 하나를 끝에 붙이고, `L.extend(list)`는 리스트 전체를 이어 붙인다. 둘 다 기존 리스트를 **변형(Mutate)** 한다.
     
 - **삭제**: `del(L[index])` (특정 위치 삭제), `L.pop()` (마지막 요소 제거 및 반환), `L.remove(e)` (특정 값의 첫 출현 삭제) 등이 있다.
+
+예1)
+```
+>x = [1,2,3,4,5] #list x 정의
+
+>print(f'Just list x -> {x}')
+
+>x.append(6) #마지막 index에 element 추가 
+>print(f'element append ->{x}') # 추가됨을 확인
+
+>y = [7,8,9] 
+>x.extend(y) # list x + list y 
+>print(f'extend list x + list y -> {x}')
+
+>del(x[0]) #list x , DEL index 0 
+>del(x[1]) #list x , DEL index 1
+
+>print(f'use del function -> {x}')
+>x.pop() #list x 마지막 element DEL
+
+>print(f'use pop() function -> {x}')
+
+Just list x -> [1, 2, 3, 4, 5]
+element append ->[1, 2, 3, 4, 5, 6]
+extend list x + list y -> [1, 2, 3, 4, 5, 6, 7, 8, 9]
+use del function -> [2, 4, 5, 6, 7, 8, 9]
+use pop() function -> [2, 4, 5, 6, 7, 8]
+```
+
     
 
 ---
